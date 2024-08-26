@@ -27,9 +27,9 @@ public class EmployeeController {
         return service.getAllEmployeeById(employeeID);
     }
 
-//    @GetMapping("/getEmployeesByOrganisationID/{orgID}")
-//    public List<Employee> getEmployeesByOrganisationID(int organisationID){
-//        return service.
-//    }
+    @GetMapping("/getEmployeesByOrganisationID/{organisationID}")
+    public List<Employee> getEmployeesByOrganisationID(@PathVariable int organisationID){
+        return service.getEmployeesByOrganisationID(organisationID);
+    }
 
 }

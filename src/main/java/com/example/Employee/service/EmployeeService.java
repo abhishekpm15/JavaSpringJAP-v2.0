@@ -21,7 +21,7 @@ public class EmployeeService {
         return employeeRepo.findById(employeeID).orElse(null);
     }
 
-//    public List<Employee> getEmployeesByOrganisationID(int organisationID) {
-//        return employeeRepo.f
-//    }
+    public List<Employee> getEmployeesByOrganisationID(int organisationID) {
+        return employeeRepo.findByOrganisationOrganisationID(organisationID);
+    }
 }

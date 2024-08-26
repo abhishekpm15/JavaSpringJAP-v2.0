@@ -1,20 +1,22 @@
 package com.example.Employee.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 public class Employee {
 
     @Id
+    @Column(name = "emp_id")
     int employeeID;
+    @Column(name = "emp_name")
     String employeeName;
+    @Column(name = "emp_add")
     String employeeAddress;
 
     @ManyToOne
-    @JoinColumn(name = "organisationID", referencedColumnName = "organisationID")
+    @JoinColumn(name = "org_id", referencedColumnName = "org_id")
+    @JsonBackReference
     private Organisation organisation;
 
     public Organisation getOrganisation() {

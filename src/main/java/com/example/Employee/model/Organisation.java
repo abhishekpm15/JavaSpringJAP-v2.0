@@ -1,5 +1,6 @@
 package com.example.Employee.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -8,8 +9,22 @@ import java.util.List;
 public class Organisation {
 
     @Id
-    int organisationID;
-    String organisationDetails;
+    @Column(name = "org_id")
+    private int organisationID;
+    @Column(name = "org_details")
+    private String organisationDetails;
+
+    @OneToMany(mappedBy = "organisation")
+    @JsonManagedReference
+    private List<Employee> employees;
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
 
     public int getOrganisationID() {
         return organisationID;
