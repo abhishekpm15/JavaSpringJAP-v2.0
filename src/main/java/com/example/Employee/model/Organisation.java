@@ -1,5 +1,6 @@
 package com.example.Employee.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -15,7 +16,7 @@ public class Organisation {
     private String organisationDetails;
 
     @OneToMany(mappedBy = "organisation")
-    @JsonManagedReference
+    @JsonBackReference
     private List<Employee> employees;
 
     public List<Employee> getEmployees() {

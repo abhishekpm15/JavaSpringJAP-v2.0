@@ -1,6 +1,7 @@
 package com.example.Employee.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,7 +17,7 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "org_id", referencedColumnName = "org_id")
-    @JsonBackReference
+    @JsonManagedReference
     private Organisation organisation;
 
     public Organisation getOrganisation() {
